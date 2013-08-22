@@ -9,6 +9,7 @@ import de.neusta.srp.exceptions.GruppeGeschlossenException;
 
 public class Gruppenersteller implements IPerson {
 
+  private String essen;
   private List<IPerson> essenGruppe = new ArrayList<IPerson>();
   private boolean gruppeGeschlossen = false;
   private String vorName;
@@ -54,7 +55,7 @@ public class Gruppenersteller implements IPerson {
   }
 
   @Override
-  public void speichereEssen() { 
+  public void speicherePerson() { 
     
   }
 
@@ -90,6 +91,16 @@ public class Gruppenersteller implements IPerson {
       e.printStackTrace();
     }
     return result.toString();
+  }
+
+  @Override
+  public String getEssen() {
+    return this.essen;
+  }
+
+  @Override
+  public void waehleEssen(String essen) {
+    this.essen = essen;
   }
   
 }

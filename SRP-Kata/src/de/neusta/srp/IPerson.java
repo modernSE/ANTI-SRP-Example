@@ -10,7 +10,11 @@ public interface IPerson {
 
   public void setName(String name);
 
-  public void speichereEssen();
+  public void speicherePerson();
+
+  public  String getEssen();
+
+  public void waehleEssen(String essen);
 
 }
  

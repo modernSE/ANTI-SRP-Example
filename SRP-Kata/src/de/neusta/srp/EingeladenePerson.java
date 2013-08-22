@@ -27,9 +27,8 @@ public class EingeladenePerson implements IPerson {
   }
 
   @Override
-  public void speichereEssen() {
-    // TODO Auto-generated method stub
-
+  public void speicherePerson() {
+    
   }
 
   public String getGruppenMitgliedschaft() {
@@ -46,10 +45,12 @@ public class EingeladenePerson implements IPerson {
     this.nachname = name;
   }
 
+  @Override
   public void waehleEssen(String essen) {
     this.essen = essen;
   }
 
+  @Override
   public String getEssen() {
     return this.essen;
   }
