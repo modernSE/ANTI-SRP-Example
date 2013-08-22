@@ -39,4 +39,21 @@ public class GruppenerstellerTest {
     testObject.schließeGruppe();
     testObject.fuegePersonZuGruppe(new EingeladenePerson("asd","bras"));
   }
+  
+  @Test 
+  public void gruppenErstellerKannBestellungPraesentieren() throws Exception{
+    EingeladenePerson personMockA = Mockito.mock(EingeladenePerson.class);
+    Mockito.when(personMockA.getEssen()).thenReturn("Baguette");
+    EingeladenePerson personMockB = Mockito.mock(EingeladenePerson.class);
+    Mockito.when(personMockB.getEssen()).thenReturn("Pizza");
+    testObject.fuegePersonZuGruppe(personMockA);
+    testObject.fuegePersonZuGruppe(personMockB);
+    Bestellzettel result = testObject.erzeugeBestellZettel();
+    Mockito.verify(personMockA).getEssen();
+    Mockito.verify(personMockB).getEssen();
+    assertTrue(result.getGerichte().contains("Baguette"));
+    assertTrue(result.getGerichte().contains("Pizza"));
+        
+  }
+  
 }
