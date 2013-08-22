@@ -15,34 +15,31 @@ public class Gruppenersteller implements IPerson {
   private String vorName;
   private String nachname;
 
-  private Gruppenersteller(){
-    
-  }
-  
+  private Gruppenersteller() {
 
-  public Gruppenersteller(String vorName, String nachName){
+  }
+
+  public Gruppenersteller(String vorName, String nachName) {
     this.vorName = vorName;
     this.nachname = nachName;
   }
-  
+
   @Override
   public String getVorName() {
     return this.vorName;
   }
-
 
   @Override
   public String getName() {
     return this.nachname;
   }
 
-
   public List<IPerson> getGruppe() {
     return essenGruppe;
   }
 
   public void fuegePersonZuGruppe(EingeladenePerson neuePerson) throws GruppeGeschlossenException {
-    if(this.gruppeGeschlossen){
+    if (this.gruppeGeschlossen) {
       throw new GruppeGeschlossenException();
     }
     essenGruppe.add(neuePerson);
@@ -51,12 +48,12 @@ public class Gruppenersteller implements IPerson {
 
   public void schließeGruppe() {
     this.gruppeGeschlossen = true;
-    
+
   }
 
   @Override
-  public void speicherePerson() { 
-    
+  public void speicherePerson() {
+
   }
 
   @Override
@@ -69,7 +66,6 @@ public class Gruppenersteller implements IPerson {
     this.nachname = name;
   }
 
-
   public String getGruppenId() {
     return this.erzeugeGruppenId(vorName.concat(nachname));
   }
@@ -79,13 +75,13 @@ public class Gruppenersteller implements IPerson {
     byte[] digest;
     try {
       digest = MessageDigest.getInstance("MD5").digest(text.getBytes());
-    for (byte element : digest) {
-      String teil = Integer.toHexString(element & 0xff);
-      if (teil.length() == 1) {
-        result.append("0");
+      for (byte element : digest) {
+        String teil = Integer.toHexString(element & 0xff);
+        if (teil.length() == 1) {
+          result.append("0");
+        }
+        result.append(teil);
       }
-      result.append(teil);
-    }
     } catch (NoSuchAlgorithmException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -102,5 +98,13 @@ public class Gruppenersteller implements IPerson {
   public void waehleEssen(String essen) {
     this.essen = essen;
   }
-  
+
+  public Bestellzettel erzeugeBestellZettel() {
+    Bestellzettel result = new Bestellzettel();
+    for (IPerson esser : essenGruppe) {
+      result.fuegeGerichtHinzu(esser.getEssen());
+    }
+    return result;
+  }
+
 }
