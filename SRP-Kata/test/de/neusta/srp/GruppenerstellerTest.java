@@ -26,18 +26,17 @@ public class GruppenerstellerTest {
   public void erzeugeGruppenid(){
     assertTrue("94db9356f8b48d5a77a6c6297eb59d76".equalsIgnoreCase(testObject.getGruppenId()));
   }
- 
-  
+    
   @Test
   public void gruppenErstellerKannPersonenInGruppeAufnehmen() throws Exception {
-    IPerson personMock = Mockito.mock(IPerson.class);
-    testObject.addPersonZuGruppe(personMock);
+    EingeladenePerson personMock = Mockito.mock(EingeladenePerson.class);
+    testObject.fuegePersonZuGruppe(personMock);
     assertTrue(testObject.getGruppe().contains(personMock));
   }
 
   @Test (expectedExceptions=GruppeGeschlossenException.class)
   public void gruppenErstellerKannGruppeSchließen() throws Exception{
     testObject.schließeGruppe();
-    testObject.addPersonZuGruppe(new EingeladenePerson("asd","bras"));
+    testObject.fuegePersonZuGruppe(new EingeladenePerson("asd","bras"));
   }
 }

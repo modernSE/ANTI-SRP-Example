@@ -16,7 +16,15 @@ public class EingeladenePersonTest {
 
   @Test
   public void personIstGruppenMitglied() throws Exception {
-    assertTrue(testObject.getGruppenMitGliedSchaft() != null);
+    Gruppenersteller gruppenErsteller = new Gruppenersteller("ein", "zwei");
+    gruppenErsteller.fuegePersonZuGruppe(testObject);
+    assertTrue("5fdc1badf4d99f7df75d56d6d9a0beab".equalsIgnoreCase(testObject.getGruppenMitgliedschaft()));
+  }
+  
+  @Test
+  public void personFuegtEssenHinzu() throws Exception {
+    testObject.waehleEssen("Baguette");
+    assertTrue("Baguette".equalsIgnoreCase(testObject.getEssen()));
   }
   
 }

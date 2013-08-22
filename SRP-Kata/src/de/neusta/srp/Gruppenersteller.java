@@ -40,11 +40,12 @@ public class Gruppenersteller implements IPerson {
     return essenGruppe;
   }
 
-  public void addPersonZuGruppe(IPerson neuePerson) throws GruppeGeschlossenException {
+  public void fuegePersonZuGruppe(EingeladenePerson neuePerson) throws GruppeGeschlossenException {
     if(this.gruppeGeschlossen){
       throw new GruppeGeschlossenException();
     }
     essenGruppe.add(neuePerson);
+    neuePerson.setzeGruppenMitgliedschaft(this.getGruppenId());
   }
 
   public void schließeGruppe() {
@@ -53,7 +54,7 @@ public class Gruppenersteller implements IPerson {
   }
 
   @Override
-  public void speichereEssen() {
+  public void speichereEssen() { 
     
   }
 

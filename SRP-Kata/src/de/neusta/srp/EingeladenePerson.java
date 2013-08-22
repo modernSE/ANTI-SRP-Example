@@ -5,6 +5,7 @@ public class EingeladenePerson implements IPerson {
   private String gruppenId;
   private String vorName;
   private String nachname;
+  private String essen;
 
   private EingeladenePerson() {
 
@@ -31,7 +32,7 @@ public class EingeladenePerson implements IPerson {
 
   }
 
-  public String getGruppenMitGliedSchaft() {
+  public String getGruppenMitgliedschaft() {
     return gruppenId;
   }
 
@@ -43,6 +44,18 @@ public class EingeladenePerson implements IPerson {
   @Override
   public void setName(String name) {
     this.nachname = name;
+  }
+
+  public void waehleEssen(String essen) {
+    this.essen = essen;
+  }
+
+  public String getEssen() {
+    return this.essen;
+  }
+
+  public void setzeGruppenMitgliedschaft(String gruppenId) {
+    this.gruppenId = gruppenId;
   }
 
 }
