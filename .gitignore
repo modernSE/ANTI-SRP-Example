@@ -1,0 +1,13 @@
+.project
+.classpath
+.settings/
+.metadata/
+bin
+.settings
+.checkstyle
+target/
+MANIFEST.MF
+*.log
+*.log.gz
+*.log.1
+.recommenders/
