@@ -36,7 +36,7 @@ public class GruppenerstellerTest {
 
 	@Test(expected = GruppeGeschlossenException.class)
 	public void gruppenErstellerKannGruppeSchließen() throws Exception {
-		testObject.schließeGruppe();
+		testObject.schliesseGruppe();
 		testObject.fuegePersonZuGruppe(new EingeladenePerson("asd", "bras"));
 	}
 

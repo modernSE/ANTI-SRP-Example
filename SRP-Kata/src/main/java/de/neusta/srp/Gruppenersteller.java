@@ -46,7 +46,7 @@ public class Gruppenersteller implements IPerson {
 		neuePerson.setzeGruppenMitgliedschaft(this.getGruppenId());
 	}
 
-	public void schließeGruppe() {
+	public void schliesseGruppe() {
 		this.gruppeGeschlossen = true;
 
 	}
@@ -83,7 +83,6 @@ public class Gruppenersteller implements IPerson {
 				result.append(teil);
 			}
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result.toString();
